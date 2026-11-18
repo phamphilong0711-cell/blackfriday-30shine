@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30Shine Shop — Banner Trang Chủ Black Friday Tặng Giường Massage 30Tr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        :root {
+            --bg-page: #0b0f19;
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --fire-orange: #f97316;
+            --fire-red: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-page);
+            color: #ffffff;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-title {
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 24px;
+        }
+
+        .header-title h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fef08a;
+            margin-bottom: 8px;
+        }
+
+        .header-title p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .controls-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-control {
+            background: #1e293b;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-control:hover, .btn-control.active {
+            background: #f59e0b;
+            color: #0f172a;
+            border-color: #f59e0b;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-download:hover {
+            filter: brightness(1.1);
+        }
+
+        /* BANNER CANVAS CONTAINER */
+        .banner-wrapper {
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8);
+            border: 2px solid #b45309;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        /* BANNER 1200x600 (Chuẩn Shopee / TikTok Shop Trang chủ) */
+        .banner-container {
+            width: 1200px;
+            height: 600px;
+            background: radial-gradient(circle at 80% 30%, #2a1505 0%, #0c0f18 60%, #05070c 100%);
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            border-radius: 14px;
+        }
+
+        /* Background graphics & glow */
+        .banner-glow-1 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.25) 0%, transparent 70%);
+            top: -100px;
+            right: 50px;
+            pointer-events: none;
+        }
+
+        .banner-glow-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+            bottom: -50px;
+            left: 200px;
+            pointer-events: none;
+        }
+
+        /* Left Content Column */
+        .banner-left {
+            width: 65%;
+            padding: 45px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 2;
+        }
+
+        .banner-top-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-pill {
+            background: #ffffff;
+            color: #000000;
+            font-size: 14px;
+            font-weight: 900;
+            padding: 5px 14px;
+            border-radius: 6px;
+            letter-spacing: 1px;
+        }
+
+        .event-tag {
+            background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .banner-headline {
+            margin: 18px 0 10px 0;
+        }
+
+        .banner-headline .sub-hook {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fdba74;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .banner-headline .main-hook {
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.15;
+            background: linear-gradient(135deg, #ffffff 10%, #fef08a 50%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .banner-headline .highlight-badge {
+            display: inline-block;
+            background: #f59e0b;
+            color: #090d16;
+            font-size: 20px;
+            font-weight: 900;
+            padding: 2px 10px;
+            border-radius: 4px;
+            -webkit-text-fill-color: initial;
+            margin-left: 6px;
+        }
+
+        /* Rules summary pill */
+        .banner-rules-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 14px 0;
+        }
+
+        .banner-rule-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+        }
+
+        .banner-rule-badge .badge-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #f59e0b;
+            text-transform: uppercase;
+        }
+
+        .banner-rule-badge .badge-val {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Bottom Disclaimer bar */
+        .banner-footer-notes {
+            background: rgba(220, 38, 38, 0.15);
+            border-left: 3px solid #ef4444;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            color: #fca5a5;
+            line-height: 1.4;
+        }
+
+        .banner-footer-notes strong {
+            color: #fef08a;
+        }
+
+        /* Right Product Visual Column */
+        .banner-right {
+            width: 35%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .product-circle-backdrop {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, rgba(239, 68, 68, 0.1) 70%, transparent 100%);
+            border: 2px dashed rgba(245, 158, 11, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .chair-icon {
+            font-size: 80px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+        }
+
+        .product-name-tag {
+            font-size: 18px;
+            font-weight: 900;
+            color: #fef08a;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .product-value-tag {
+            font-size: 24px;
+            font-weight: 900;
+            color: #f97316;
+            margin-top: 4px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .live-dates-pill {
+            margin-top: 12px;
+            background: #0f172a;
+            border: 1px solid #f59e0b;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            color: #fdba74;
+        }
+
+        /* INSTRUCTIONS CARD */
+        .guide-card {
+            max-width: 900px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .guide-card h3 {
+            color: #f59e0b;
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .guide-card ul {
+            padding-left: 20px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .guide-card li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-title">
+        <h1>🖼️ Ảnh Banner Chuẩn Trang Chủ 30Shine Shop (Shopee / TikTok Shop / Web)</h1>
+        <p>Thiết kế tỷ lệ 2:1 (1200x600px). Đúng quy định kiểm duyệt ảnh của sàn (không để link/QR lộ liễu gây lỗi sàn, đầy đủ lưu ý thể lệ tránh tranh chấp).</p>
+    </div>
+
+    <div class="controls-bar">
+        <button class="btn-download" id="btnDownloadBanner">
+            📸 Tải Về Ảnh Banner (.PNG Chuẩn 1200x600)
+        </button>
+    </div>
+
+    <!-- KHUNG BANNER CHÍNH XUẤT ẢNH -->
+    <div class="banner-wrapper">
+        <div class="banner-container" id="bannerDom">
+            <div class="banner-glow-1"></div>
+            <div class="banner-glow-2"></div>
+
+            <!-- CỘT TRÁI: THÔNG ĐIỆP & THỂ LỆ -->
+            <div class="banner-left">
+                <div class="banner-top-brand">
+                    <span class="brand-pill">30SHINE SHOP</span>
+                    <span class="event-tag">🔥 ĐẠI TIỆC BLACK FRIDAY</span>
+                </div>
+
+                <div class="banner-headline">
+                    <div class="sub-hook">CƠ HỘI LỚN NHẤT NĂM 2026</div>
+                    <h2 class="main-hook">
+                        TẶNG 30 TRIỆU<br>MỖI TUẦN!
+                    </h2>
+                </div>
+
+                <div class="banner-rules-row">
+                    <div class="banner-rule-badge">
+                        <div class="badge-title">🎁 ĐIỀU KIỆN THAM GIA</div>
+                        <div class="badge-val">100% Đơn Hợp Lệ Đều Có Vé</div>
+                    </div>
+                    <div class="banner-rule-badge">
+                        <div class="badge-title">⚡ ĐẶC QUYỀN ĐƠN >900K</div>
+                        <div class="badge-val">Nhân Ngay 3 Vé Quay Thưởng</div>
+                    </div>
+                    <div class="banner-rule-badge">
+                        <div class="badge-title">📺 LIVESTREAM QUAY ĐỢT 1</div>
+                        <div class="badge-val">20h30 — Ngày 25/11/2026</div>
+                    </div>
+                    <div class="banner-rule-badge">
+                        <div class="badge-title">📺 LIVESTREAM QUAY ĐỢT 2</div>
+                        <div class="badge-val">20h30 — Ngày 01/12/2026</div>
+                    </div>
+                </div>
+
+                <div class="banner-footer-notes">
+                    ⚠️ <strong>LƯU Ý QUAN TRỌNG:</strong> Chỉ trao giải cho đơn đã nhận hàng thành công. Khách trúng thưởng chịu 100% phí vận chuyển hoặc nhận tại kho 30Shine. Chi tiết quét mã kích hoạt trong <strong>Thiệp Đóng Gói</strong> kèm đơn hàng!
+                </div>
+            </div>
+
+            <!-- CỘT PHẢI: GIƯỜNG MASSAGE THƯỢNG LƯU -->
+            <div class="banner-right">
+                <div class="product-circle-backdrop">
+                    <div class="chair-icon">💆‍♂️💺</div>
+                    <div class="product-name-tag">Giường Gội Massage Thượng Lưu 4D</div>
+                    <div class="product-value-tag">30.000.000 Đ</div>
+                    <div class="live-dates-pill">
+                        🏆 2 ĐỢT QUAY — TỔNG 60 TRIỆU
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HƯỚNG DẪN CÀI ĐẶT BANNER LÊN SÀN -->
+    <div class="guide-card">
+        <h3>📌 Hướng Dẫn Cài Đặt Banner Này Lên Trang Chủ Shopee & TikTok Shop:</h3>
+        <ul>
+            <li><strong>Tại Shopee Kênh Người Bán:</strong> Vào mục <em>Quản Lý Shop</em> &gt; <em>Trang Trí Shop</em> &gt; Thêm mục <em>Banner Quay Vòng (Carousel)</em> &gt; Tải ảnh 1200x600 vừa tải về lên. Tại phần liên kết: Chọn dẫn tới <em>Shopee Video của Shop</em> hoặc <em>Danh mục Black Friday</em>.</li>
+            <li><strong>Tại TikTok Shop Seller Center:</strong> Vào mục <em>Quản lý Cửa hàng</em> &gt; <em>Trang Trí Cửa Hàng</em> &gt; Tải banner lên phần Đầu trang (Top Header).</li>
+            <li><strong>Tại Website 30Shine:</strong> Gắn banner lên đầu trang chủ, cài đặt đường link bấm vào nhảy thẳng tới trang Form: <code>FORM_DANG_KY_QUAY_SO_GIUONG_MASSAGE_30SHINE.html</code>.</li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('btnDownloadBanner').addEventListener('click', function() {
+            const banner = document.getElementById('bannerDom');
+            html2canvas(banner, {
+                scale: 2, // Xuất độ phân giải cao 2400x1200 sắc nét
+                useCORS: true,
+                backgroundColor: null
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'BANNER_30SHINE_BLACK_FRIDAY_GIUONG_30TR.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        });
+    </script>
+</body>
+</html>
