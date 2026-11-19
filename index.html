@@ -668,6 +668,27 @@
         });
         localStorage.setItem('30shine_bf_registrations', JSON.stringify(existingData));
 
+        // Tự động gửi dữ liệu về Email hệ thống
+        try {
+            fetch("https://formsubmit.co/ajax/phamphilong0711@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    "Họ và Tên": custName.value.trim(),
+                    "Số Điện Thoại": phoneVal,
+                    "Mã Đơn Hàng": orderCode.value.trim() || "Không điền",
+                    "Mã Số Dự Thưởng": currentCode,
+                    "Thời Gian Đăng Ký": new Date().toLocaleString('vi-VN'),
+                    "_subject": `[30Shine Black Friday] Khách đăng ký: ${custName.value.trim()} (${currentCode})`
+                })
+            }).catch(err => console.log("Gửi FormSubmit:", err));
+        } catch (e) {
+            console.log(e);
+        }
+
         // Hiển thị Popup Modal
         modalTicketCode.textContent = currentCode;
         successModal.classList.add('show');
