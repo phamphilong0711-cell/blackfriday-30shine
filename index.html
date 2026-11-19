@@ -668,7 +668,24 @@
         });
         localStorage.setItem('30shine_bf_registrations', JSON.stringify(existingData));
 
-        // Tự động gửi dữ liệu về Email hệ thống (Đa kênh đảm bảo nhận 100%)
+        // 1. NỐI NGẦM DỮ LIỆU THẲNG VÀO GOOGLE SHEETS
+        try {
+            const gFormData = new FormData();
+            gFormData.append("entry.67552088", custName.value.trim());
+            gFormData.append("entry.510213647", phoneVal);
+            const fullOrderInfo = (orderCode.value.trim() ? orderCode.value.trim() + " - " : "") + "Vé: " + currentCode;
+            gFormData.append("entry.1456811583", fullOrderInfo);
+
+            fetch("https://docs.google.com/forms/d/e/1FAIpQLScTbJlapKHMUEzOgbVpa5By8mao0COGA5tX2az1_4c5HbZCww/formResponse", {
+                method: "POST",
+                mode: "no-cors",
+                body: gFormData
+            }).catch(err => console.log("Google Sheets sync:", err));
+        } catch (e) {
+            console.log("GForm error:", e);
+        }
+
+        // 2. Tự động gửi dữ liệu về Email hệ thống (Dự phòng)
         const leadPayload = {
             "Họ và Tên": custName.value.trim(),
             "Số Điện Thoại": phoneVal,
