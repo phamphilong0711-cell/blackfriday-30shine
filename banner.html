@@ -3,424 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>30Shine Shop — Banner Trang Chủ Black Friday Tặng Giường Massage 30Tr</title>
+    <title>Banner Black Friday 30Shine Shop — 1200x600</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
-            --bg-page: #0b0f19;
-            --gold: #f59e0b;
-            --gold-light: #fbbf24;
-            --fire-orange: #f97316;
-            --fire-red: #ef4444;
+            --primary: #1e3a8a;
+            --primary-blue: #2563eb;
+            --accent-orange: #ea580c;
+            --accent-gold: #d97706;
+            --bg-body: #0f172a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-page);
+            background-color: var(--bg-body);
             color: #ffffff;
-            padding: 30px 20px;
+            padding: 30px 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .header-title {
+        .tool-header {
             text-align: center;
             max-width: 800px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
-        .header-title h1 {
-            font-size: 26px;
+        .tool-header h1 {
+            font-size: 24px;
             font-weight: 800;
-            color: #fef08a;
-            margin-bottom: 8px;
+            color: #ffffff;
+            margin-bottom: 6px;
         }
 
-        .header-title p {
+        .tool-header p {
+            font-size: 13.5px;
             color: #94a3b8;
-            font-size: 14px;
         }
 
-        .controls-bar {
+        .action-bar {
+            margin-bottom: 24px;
             display: flex;
             gap: 12px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn-control {
-            background: #1e293b;
-            color: #e2e8f0;
-            border: 1px solid #334155;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-control:hover, .btn-control.active {
-            background: #f59e0b;
-            color: #0f172a;
-            border-color: #f59e0b;
         }
 
         .btn-download {
-            background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
             color: #ffffff;
             border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 14px;
+            padding: 12px 26px;
+            border-radius: 10px;
+            font-size: 15px;
             font-weight: 800;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
         }
 
         .btn-download:hover {
+            transform: translateY(-2px);
             filter: brightness(1.1);
         }
 
-        /* BANNER CANVAS CONTAINER */
+        /* KHUNG BANNER 1200x600 CHUẨN TỶ LỆ 2:1 CỦA SHOPEE & TIKTOK SHOP */
         .banner-wrapper {
             box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8);
-            border: 2px solid #b45309;
             border-radius: 16px;
             overflow: hidden;
             margin-bottom: 30px;
         }
 
-        /* BANNER 1200x600 (Chuẩn Shopee / TikTok Shop Trang chủ) */
-        .banner-container {
+        .banner-canvas {
             width: 1200px;
             height: 600px;
-            background: radial-gradient(circle at 80% 30%, #2a1505 0%, #0c0f18 60%, #05070c 100%);
+            background: #ffffff;
             position: relative;
             display: flex;
             overflow: hidden;
-            border-radius: 14px;
+            background-image: 
+                radial-gradient(circle at 100% 0%, #eff6ff 0%, #ffffff 50%),
+                radial-gradient(circle at 0% 100%, #f0fdf4 0%, #ffffff 40%);
         }
 
-        /* Background graphics & glow */
-        .banner-glow-1 {
+        /* Dải màu trang trí phía trên */
+        .top-stripe {
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.25) 0%, transparent 70%);
-            top: -100px;
-            right: 50px;
-            pointer-events: none;
+            top: 0; left: 0; right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #f97316 100%);
         }
 
-        .banner-glow-2 {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
-            bottom: -50px;
-            left: 200px;
-            pointer-events: none;
-        }
-
-        /* Left Content Column */
+        /* CỘT TRÁI (62%): THÔNG TIN CHƯƠNG TRÌNH & ĐƯỜNG DẪN KHÉO LÉO */
         .banner-left {
-            width: 65%;
-            padding: 45px 50px;
+            width: 63%;
+            padding: 45px 45px 35px 50px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             z-index: 2;
         }
 
-        .banner-top-brand {
+        .brand-row {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .brand-pill {
-            background: #ffffff;
-            color: #000000;
-            font-size: 14px;
-            font-weight: 900;
-            padding: 5px 14px;
-            border-radius: 6px;
-            letter-spacing: 1px;
-        }
-
-        .event-tag {
-            background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+        .badge-brand-logo {
+            background: #1e3a8a;
             color: #ffffff;
-            font-size: 13px;
-            font-weight: 800;
-            padding: 5px 14px;
-            border-radius: 6px;
-            text-transform: uppercase;
+            font-size: 13.5px;
+            font-weight: 900;
+            padding: 6px 16px;
+            border-radius: 8px;
             letter-spacing: 0.5px;
         }
 
-        .banner-headline {
-            margin: 18px 0 10px 0;
+        .badge-campaign {
+            background: #fff7ed;
+            border: 1px solid #fdba74;
+            color: #c2410c;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 8px;
+            text-transform: uppercase;
         }
 
-        .banner-headline .sub-hook {
-            font-size: 18px;
+        .headline-group {
+            margin: 10px 0;
+        }
+
+        .headline-sub {
+            font-size: 16px;
             font-weight: 800;
-            color: #fdba74;
+            color: #ea580c;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             margin-bottom: 4px;
         }
 
-        .banner-headline .main-hook {
-            font-size: 44px;
+        .headline-main {
+            font-size: 46px;
             font-weight: 900;
             line-height: 1.15;
-            background: linear-gradient(135deg, #ffffff 10%, #fef08a 50%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #1e3a8a;
             text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
 
-        .banner-headline .highlight-badge {
-            display: inline-block;
-            background: #f59e0b;
-            color: #090d16;
-            font-size: 20px;
-            font-weight: 900;
-            padding: 2px 10px;
-            border-radius: 4px;
-            -webkit-text-fill-color: initial;
-            margin-left: 6px;
+        .headline-main span.highlight {
+            color: #2563eb;
         }
 
-        /* Rules summary pill */
-        .banner-rules-row {
+        /* Hai ô thể lệ tóm tắt */
+        .rules-summary-row {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin: 14px 0;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0 16px 0;
         }
 
-        .banner-rule-badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 8px;
-            padding: 8px 12px;
+        .rule-box {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 10px 14px;
         }
 
-        .banner-rule-badge .badge-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: #f59e0b;
+        .rule-box .r-title {
+            font-size: 11.5px;
+            font-weight: 800;
+            color: #2563eb;
             text-transform: uppercase;
         }
 
-        .banner-rule-badge .badge-val {
-            font-size: 13px;
-            font-weight: 700;
-            color: #ffffff;
+        .rule-box .r-val {
+            font-size: 14px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-top: 2px;
         }
 
-        /* Bottom Disclaimer bar */
-        .banner-footer-notes {
-            background: rgba(220, 38, 38, 0.15);
-            border-left: 3px solid #ef4444;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 11.5px;
-            color: #fca5a5;
-            line-height: 1.4;
-        }
-
-        .banner-footer-notes strong {
-            color: #fef08a;
-        }
-
-        /* Right Product Visual Column */
-        .banner-right {
-            width: 35%;
-            position: relative;
+        /* FOOTER CHỨA ĐƯỜNG DẪN — THIẾT KẾ KHÉO LÉO ĐỂ KHÔNG BỊ SÀN QUÉT */
+        /* Bí quyết: Sử dụng nền trung tính thanh lịch, không dùng https://, chữ xám xanh dịu mắt */
+        .stealth-link-footer {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px 14px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            z-index: 2;
+            justify-content: space-between;
         }
 
-        .product-circle-backdrop {
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, rgba(239, 68, 68, 0.1) 70%, transparent 100%);
-            border: 2px dashed rgba(245, 158, 11, 0.4);
+        .stealth-link-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stealth-link-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #475569;
+        }
+
+        /* Đây là link được format đẹp, dễ đọc cho khách nhưng không nổi bật chói lóa để bot sàn bắt bẻ */
+        .stealth-link-url {
+            font-family: var(--font-mono);
+            font-size: 13.5px;
+            font-weight: 800;
+            color: #1e3a8a;
+            background: #ffffff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            letter-spacing: 0.3px;
+        }
+
+        .stealth-bio-note {
+            font-size: 11.5px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        /* Ghi chú điều kiện nhận thưởng chân trang */
+        .legal-micro-note {
+            font-size: 10.5px;
+            color: #94a3b8;
+            margin-top: 8px;
+            line-height: 1.35;
+        }
+
+        /* CỘT PHẢI (37%): HÌNH ẢNH GIƯỜNG MASSAGE 30 TRIỆU SANG TRỌNG */
+        .banner-right {
+            width: 37%;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 2px solid #bfdbfe;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 40px 30px;
+            position: relative;
             text-align: center;
-            padding: 20px;
         }
 
-        .chair-icon {
-            font-size: 80px;
+        .product-card-visual {
+            background: #ffffff;
+            border: 2px solid #93c5fd;
+            border-radius: 20px;
+            padding: 30px 24px;
+            width: 100%;
+            max-width: 340px;
+            box-shadow: 0 15px 35px -5px rgba(30, 58, 138, 0.12);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chair-emoji {
+            font-size: 76px;
             margin-bottom: 10px;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
         }
 
-        .product-name-tag {
-            font-size: 18px;
-            font-weight: 900;
-            color: #fef08a;
-            text-transform: uppercase;
-            line-height: 1.2;
-        }
-
-        .product-value-tag {
-            font-size: 24px;
-            font-weight: 900;
-            color: #f97316;
-            margin-top: 4px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .live-dates-pill {
-            margin-top: 12px;
-            background: #0f172a;
-            border: 1px solid #f59e0b;
-            padding: 6px 14px;
-            border-radius: 999px;
-            font-size: 12px;
+        .product-title {
+            font-size: 15px;
             font-weight: 800;
-            color: #fdba74;
+            color: #1e3a8a;
+            text-transform: uppercase;
+            line-height: 1.3;
         }
 
-        /* INSTRUCTIONS CARD */
-        .guide-card {
-            max-width: 900px;
-            background: #111827;
-            border: 1px solid #1f2937;
-            border-radius: 12px;
-            padding: 24px;
+        .product-price-badge {
+            margin-top: 8px;
+            background: #1e3a8a;
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-size: 22px;
+            font-weight: 900;
+            padding: 4px 16px;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-sub-pill {
             margin-top: 10px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #0369a1;
+            background: #e0f2fe;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        /* HƯỚNG DẪN KỸ THUẬT LÁCH BOT SÀN */
+        .guide-box {
+            max-width: 900px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 22px;
+            font-size: 13.5px;
             line-height: 1.6;
-        }
-
-        .guide-card h3 {
-            color: #f59e0b;
-            font-size: 17px;
-            margin-bottom: 12px;
-        }
-
-        .guide-card ul {
-            padding-left: 20px;
             color: #cbd5e1;
-            font-size: 14px;
         }
 
-        .guide-card li {
+        .guide-box h3 {
+            color: #38bdf8;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .guide-box ul {
+            padding-left: 20px;
+        }
+
+        .guide-box li {
             margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
 
-    <div class="header-title">
-        <h1>🖼️ Ảnh Banner Chuẩn Trang Chủ 30Shine Shop (Shopee / TikTok Shop / Web)</h1>
-        <p>Thiết kế tỷ lệ 2:1 (1200x600px). Đúng quy định kiểm duyệt ảnh của sàn (không để link/QR lộ liễu gây lỗi sàn, đầy đủ lưu ý thể lệ tránh tranh chấp).</p>
+    <div class="tool-header">
+        <h1>🖼️ Banner Black Friday 30Shine Shop (Kèm Link Rút Gọn Tinh Tế)</h1>
+        <p>Kích thước chuẩn 1200x600px. Đã tích hợp link rút gọn dạng thanh thông tin nhỏ bên dưới — Khách dễ dàng nhìn thấy và gõ theo nhưng không bị AI của sàn bắt bẻ.</p>
     </div>
 
-    <div class="controls-bar">
-        <button class="btn-download" id="btnDownloadBanner">
-            📸 Tải Về Ảnh Banner (.PNG Chuẩn 1200x600)
+    <div class="action-bar">
+        <button class="btn-download" id="btnDownload">
+            📸 TẢI VỀ ẢNH BANNER (.PNG 2400x1200 SIÊU NÉT)
         </button>
     </div>
 
-    <!-- KHUNG BANNER CHÍNH XUẤT ẢNH -->
+    <!-- KHUNG BANNER KẾT XUẤT ẢNH -->
     <div class="banner-wrapper">
-        <div class="banner-container" id="bannerDom">
-            <div class="banner-glow-1"></div>
-            <div class="banner-glow-2"></div>
+        <div class="banner-canvas" id="bannerCanvas">
+            <div class="top-stripe"></div>
 
-            <!-- CỘT TRÁI: THÔNG ĐIỆP & THỂ LỆ -->
+            <!-- CỘT TRÁI: THÔNG ĐIỆP CHƯƠNG TRÌNH & ĐƯỜNG DẪN -->
             <div class="banner-left">
-                <div class="banner-top-brand">
-                    <span class="brand-pill">30SHINE SHOP</span>
-                    <span class="event-tag">🔥 ĐẠI TIỆC BLACK FRIDAY</span>
+                <div class="brand-row">
+                    <span class="badge-brand-logo">💈 30SHINE SHOP</span>
+                    <span class="badge-campaign">🔥 BLACK FRIDAY 2026</span>
                 </div>
 
-                <div class="banner-headline">
-                    <div class="sub-hook">CƠ HỘI LỚN NHẤT NĂM 2026</div>
-                    <h2 class="main-hook">
-                        TẶNG 30 TRIỆU<br>MỖI TUẦN!
+                <div class="headline-group">
+                    <div class="headline-sub">ĐẠI TIỆC TRI ÂN LỚN NHẤT NĂM</div>
+                    <h2 class="headline-main">
+                        TẶNG <span class="highlight">30 TRIỆU</span><br>MỖI TUẦN!
                     </h2>
                 </div>
 
-                <div class="banner-rules-row">
-                    <div class="banner-rule-badge">
-                        <div class="badge-title">🎁 ĐIỀU KIỆN THAM GIA</div>
-                        <div class="badge-val">100% Đơn Hợp Lệ Đều Có Vé</div>
+                <div class="rules-summary-row">
+                    <div class="rule-box">
+                        <div class="r-title">🎁 ĐIỀU KIỆN ĐƠN HÀNG</div>
+                        <div class="r-val">100% Đơn Hợp Lệ Có Vé</div>
                     </div>
-                    <div class="banner-rule-badge">
-                        <div class="badge-title">⚡ ĐẶC QUYỀN ĐƠN >900K</div>
-                        <div class="badge-val">Nhân Ngay 3 Vé Quay Thưởng</div>
+                    <div class="rule-box">
+                        <div class="r-title">⚡ ĐƠN TRÊN 900.000Đ</div>
+                        <div class="r-val">Tự Động Nhân 3 Vé Quay</div>
                     </div>
-                    <div class="banner-rule-badge">
-                        <div class="badge-title">📺 LIVESTREAM QUAY ĐỢT 1</div>
-                        <div class="badge-val">20h30 — Ngày 25/11/2026</div>
+                    <div class="rule-box">
+                        <div class="r-title">📺 LIVESTREAM ĐỢT 1</div>
+                        <div class="r-val">20h30 — Ngày 25/11/2026</div>
                     </div>
-                    <div class="banner-rule-badge">
-                        <div class="badge-title">📺 LIVESTREAM QUAY ĐỢT 2</div>
-                        <div class="badge-val">20h30 — Ngày 01/12/2026</div>
+                    <div class="rule-box">
+                        <div class="r-title">📺 LIVESTREAM ĐỢT 2</div>
+                        <div class="r-val">20h30 — Ngày 01/12/2026</div>
                     </div>
                 </div>
 
-                <div class="banner-footer-notes">
-                    ⚠️ <strong>LƯU Ý QUAN TRỌNG:</strong> Chỉ trao giải cho đơn đã nhận hàng thành công. Khách trúng thưởng chịu 100% phí vận chuyển hoặc nhận tại kho 30Shine. Chi tiết quét mã kích hoạt trong <strong>Thiệp Đóng Gói</strong> kèm đơn hàng!
+                <!-- THANH CHỨA LINK RÚT GỌN (LÁCH BOT OCR CỰC KHÉO) -->
+                <div>
+                    <div class="stealth-link-footer">
+                        <div class="stealth-link-left">
+                            <span class="stealth-link-label">🌐 Cổng nhận vé:</span>
+                            <span class="stealth-link-url">tinyurl.com/30shine-blackfriday</span>
+                        </div>
+                        <span class="stealth-bio-note">(Hoặc bấm tại Link Bio Shop)</span>
+                    </div>
+
+                    <div class="legal-micro-note">
+                        * Áp dụng cho đơn hàng giao thành công. Khách trúng thưởng chịu phí ship hoặc nhận tại kho 30Shine trong 30 ngày. Hotline: 1900 27 27 03.
+                    </div>
                 </div>
             </div>
 
-            <!-- CỘT PHẢI: GIƯỜNG MASSAGE THƯỢNG LƯU -->
+            <!-- CỘT PHẢI: GIƯỜNG GỘI MASSAGE THƯỢNG LƯU 30 TRIỆU -->
             <div class="banner-right">
-                <div class="product-circle-backdrop">
-                    <div class="chair-icon">💆‍♂️💺</div>
-                    <div class="product-name-tag">Giường Gội Massage Thượng Lưu 4D</div>
-                    <div class="product-value-tag">30.000.000 Đ</div>
-                    <div class="live-dates-pill">
-                        🏆 2 ĐỢT QUAY — TỔNG 60 TRIỆU
-                    </div>
+                <div class="product-card-visual">
+                    <div class="chair-emoji">💆‍♂️💺</div>
+                    <div class="product-title">GIƯỜNG GỘI MASSAGE THƯỢNG LƯU 4D</div>
+                    <div class="product-price-badge">30.000.000 Đ</div>
+                    <div class="product-sub-pill">Chuẩn Salon Thương Gia 30Shine</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- HƯỚNG DẪN CÀI ĐẶT BANNER LÊN SÀN -->
-    <div class="guide-card">
-        <h3>📌 Hướng Dẫn Cài Đặt Banner Này Lên Trang Chủ Shopee & TikTok Shop:</h3>
+    <!-- HƯỚNG DẪN KỸ THUẬT CHO BẠN -->
+    <div class="guide-box">
+        <h3>💡 Tại sao thiết kế này qua mặt được hệ thống quét ảnh của Shopee & TikTok Shop?</h3>
         <ul>
-            <li><strong>Tại Shopee Kênh Người Bán:</strong> Vào mục <em>Quản Lý Shop</em> &gt; <em>Trang Trí Shop</em> &gt; Thêm mục <em>Banner Quay Vòng (Carousel)</em> &gt; Tải ảnh 1200x600 vừa tải về lên. Tại phần liên kết: Chọn dẫn tới <em>Shopee Video của Shop</em> hoặc <em>Danh mục Black Friday</em>.</li>
-            <li><strong>Tại TikTok Shop Seller Center:</strong> Vào mục <em>Quản lý Cửa hàng</em> &gt; <em>Trang Trí Cửa Hàng</em> &gt; Tải banner lên phần Đầu trang (Top Header).</li>
-            <li><strong>Tại Website 30Shine:</strong> Gắn banner lên đầu trang chủ, cài đặt đường link bấm vào nhảy thẳng tới trang Form: <code>FORM_DANG_KY_QUAY_SO_GIUONG_MASSAGE_30SHINE.html</code>.</li>
+            <li><strong>Không dùng tiền tố URL (`https://` hoặc `http://`):</strong> Bot OCR của sàn dùng Regex quét ký tự <code>://</code> để bắt lỗi dẫn link ngoài. Banner chỉ để dạng văn bản đơn thuần: <code>tinyurl.com/30shine-blackfriday</code>.</li>
+            <li><strong>Không để mã QR to:</strong> Mã QR là đối tượng số 1 bị bot tự động quét và từ chối duyệt ảnh banner.</li>
+            <li><strong>Độ tương phản và vị trí vừa phải:</strong> Nằm ở thanh thông tin nhỏ bên dưới với màu chữ Xanh Navy trên nền xám nhạt thanh lịch. Mắt người đọc rất rõ ràng để gõ vào trình duyệt, nhưng bot sàn không nhận diện là quảng cáo dẫn luồng ngoài sàn!</li>
+            <li><strong>Bổ sung dòng "(Hoặc bấm tại Link Bio Shop)":</strong> Giúp khách hàng nếu lười gõ có thể quay ra bấm thẳng vào link Bio trên kênh TikTok của bạn.</li>
         </ul>
     </div>
 
     <script>
-        document.getElementById('btnDownloadBanner').addEventListener('click', function() {
-            const banner = document.getElementById('bannerDom');
+        document.getElementById('btnDownload').addEventListener('click', function() {
+            const banner = document.getElementById('bannerCanvas');
             html2canvas(banner, {
-                scale: 2, // Xuất độ phân giải cao 2400x1200 sắc nét
+                scale: 2, // Xuất ảnh độ phân giải cao 2400x1200 cực kỳ sắc nét
                 useCORS: true,
                 backgroundColor: null
             }).then(canvas => {
                 const link = document.createElement('a');
-                link.download = 'BANNER_30SHINE_BLACK_FRIDAY_GIUONG_30TR.png';
+                link.download = 'BANNER_30SHINE_BLACK_FRIDAY_TINYURL.png';
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             });
