@@ -668,23 +668,33 @@
         });
         localStorage.setItem('30shine_bf_registrations', JSON.stringify(existingData));
 
-        // Tự động gửi dữ liệu về Email hệ thống
+        // Tự động gửi dữ liệu về Email hệ thống (Đa kênh đảm bảo nhận 100%)
+        const leadPayload = {
+            "Họ và Tên": custName.value.trim(),
+            "Số Điện Thoại": phoneVal,
+            "Mã Đơn Hàng": orderCode.value.trim() || "Không điền",
+            "Mã Số Dự Thưởng": currentCode,
+            "Thời Gian Đăng Ký": new Date().toLocaleString('vi-VN'),
+            "_subject": `[30Shine Black Friday] Khách đăng ký: ${custName.value.trim()} (${currentCode})`
+        };
+
         try {
+            // Cổng 1: FormSubmit
             fetch("https://formsubmit.co/ajax/phamphilong0711@gmail.com", {
                 method: "POST",
                 headers: { 
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({
-                    "Họ và Tên": custName.value.trim(),
-                    "Số Điện Thoại": phoneVal,
-                    "Mã Đơn Hàng": orderCode.value.trim() || "Không điền",
-                    "Mã Số Dự Thưởng": currentCode,
-                    "Thời Gian Đăng Ký": new Date().toLocaleString('vi-VN'),
-                    "_subject": `[30Shine Black Friday] Khách đăng ký: ${custName.value.trim()} (${currentCode})`
-                })
-            }).catch(err => console.log("Gửi FormSubmit:", err));
+                body: JSON.stringify(leadPayload)
+            }).catch(err => console.log("FormSubmit:", err));
+
+            // Cổng 2: Airform dự phòng (Nhận trực tiếp không cần token)
+            fetch("https://airform.io/phamphilong0711@gmail.com", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(leadPayload)
+            }).catch(err => console.log("Airform:", err));
         } catch (e) {
             console.log(e);
         }
